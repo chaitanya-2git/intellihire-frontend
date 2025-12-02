@@ -1,1 +1,476 @@
- 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Interview - IntelliHire</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/interview.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    
+    <div class="dashboard-wrapper">
+        
+        <!-- ============================================
+             SIDEBAR
+             ============================================ -->
+        <aside class="sidebar" id="sidebar">
+            
+            <!-- Brand -->
+            <div class="sidebar-brand">
+                <i class="fas fa-brain"></i>
+                <span>IntelliHire</span>
+            </div>
+            
+            <!-- User Profile -->
+            <div class="sidebar-profile">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-info">
+                    <h4>Rahul Sharma</h4>
+                    <p>rahul@example.com</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="jobs.html" class="nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Browse Jobs</span>
+                    <span class="badge badge-primary">50</span>
+                </a>
+                <a href="applications.html" class="nav-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>My Applications</span>
+                </a>
+                <a href="resume-upload.html" class="nav-item">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload Resume</span>
+                </a>
+                <a href="mock-interview.html" class="nav-item active">
+                    <i class="fas fa-microphone"></i>
+                    <span>Mock Interview</span>
+                </a>
+                <a href="interview-history.html" class="nav-item">
+                    <i class="fas fa-history"></i>
+                    <span>Interview History</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Profile Settings</span>
+                </a>
+            </nav>
+            
+            <!-- Logout -->
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+            
+        </aside>
+        
+        <!-- ============================================
+             MAIN CONTENT
+             ============================================ -->
+        <main class="main-content">
+            
+            <!-- Top Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Mock Interview</h1>
+                </div>
+                <div class="header-right">
+                    <!-- Notifications -->
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    
+                    <!-- User Avatar -->
+                    <div class="header-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- ============================================
+                 INTERVIEW CONTENT
+                 ============================================ -->
+            <div class="interview-content">
+                
+                <!-- ============================================
+                     SETUP SCREEN (Initial)
+                     ============================================ -->
+                <div class="interview-screen active" id="setupScreen">
+                    <div class="setup-container">
+                        
+                        <div class="setup-header">
+                            <div class="ai-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h2>AI Mock Interview</h2>
+                            <p>Practice with our AI interviewer and get instant feedback</p>
+                        </div>
+                        
+                        <div class="setup-form">
+                            
+                            <!-- Job Role Selection -->
+                            <div class="form-group">
+                                <label for="jobRole">
+                                    <i class="fas fa-briefcase"></i> Select Job Role
+                                </label>
+                                <select id="jobRole" class="form-control">
+                                    <option value="">Choose a role...</option>
+                                    <option value="frontend">Frontend Developer</option>
+                                    <option value="backend">Backend Developer</option>
+                                    <option value="fullstack">Full Stack Developer</option>
+                                    <option value="devops">DevOps Engineer</option>
+                                    <option value="dataScience">Data Scientist</option>
+                                    <option value="mobile">Mobile Developer</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Difficulty Level -->
+                            <div class="form-group">
+                                <label>
+                                    <i class="fas fa-sliders-h"></i> Difficulty Level
+                                </label>
+                                <div class="difficulty-options">
+                                    <label class="radio-card">
+                                        <input type="radio" name="difficulty" value="easy" checked>
+                                        <div class="radio-content">
+                                            <i class="fas fa-smile"></i>
+                                            <h4>Easy</h4>
+                                            <p>Beginner friendly</p>
+                                        </div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="difficulty" value="medium">
+                                        <div class="radio-content">
+                                            <i class="fas fa-meh"></i>
+                                            <h4>Medium</h4>
+                                            <p>Intermediate level</p>
+                                        </div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="difficulty" value="hard">
+                                        <div class="radio-content">
+                                            <i class="fas fa-frown"></i>
+                                            <h4>Hard</h4>
+                                            <p>Expert level</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Number of Questions -->
+                            <div class="form-group">
+                                <label for="numQuestions">
+                                    <i class="fas fa-list-ol"></i> Number of Questions
+                                </label>
+                                <select id="numQuestions" class="form-control">
+                                    <option value="3">3 Questions (Quick - 15 min)</option>
+                                    <option value="5" selected>5 Questions (Standard - 25 min)</option>
+                                    <option value="10">10 Questions (Comprehensive - 45 min)</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Interview Tips -->
+                            <div class="tips-card">
+                                <h4><i class="fas fa-lightbulb"></i> Interview Tips</h4>
+                                <ul>
+                                    <li>Find a quiet place with good internet connection</li>
+                                    <li>Allow microphone access when prompted</li>
+                                    <li>Speak clearly and take your time to answer</li>
+                                    <li>The AI will evaluate your communication and technical skills</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Start Button -->
+                            <button class="btn btn-primary btn-lg btn-block" id="startInterview">
+                                <i class="fas fa-play"></i> Start Interview
+                            </button>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- ============================================
+                     INTERVIEW SCREEN (During Interview)
+                     ============================================ -->
+                <div class="interview-screen" id="interviewScreen">
+                    <div class="interview-container">
+                        
+                        <!-- Interview Header -->
+                        <div class="interview-header">
+                            <div class="progress-info">
+                                <span class="question-counter">Question <span id="currentQuestion">1</span> of <span id="totalQuestions">5</span></span>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" id="progressBar"></div>
+                                </div>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" id="endInterview">
+                                <i class="fas fa-stop"></i> End Interview
+                            </button>
+                        </div>
+                        
+                        <!-- AI Interviewer -->
+                        <div class="ai-interviewer">
+                            <div class="ai-avatar-large" id="aiAvatar">
+                                <i class="fas fa-robot"></i>
+                                <div class="speaking-indicator" id="speakingIndicator">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <h3 id="aiStatus">AI is asking a question...</h3>
+                        </div>
+                        
+                        <!-- Question Display -->
+                        <div class="question-display" id="questionDisplay">
+                            <div class="question-text">
+                                <i class="fas fa-quote-left"></i>
+                                <p id="questionText">What is your experience with React and modern JavaScript frameworks?</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Recording Controls -->
+                        <div class="recording-controls">
+                            <div class="recording-status" id="recordingStatus">
+                                <i class="fas fa-microphone-slash"></i>
+                                <span>Click the button to start recording your answer</span>
+                            </div>
+                            
+                            <button class="record-button" id="recordButton">
+                                <div class="record-icon">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                                <span>Start Recording</span>
+                            </button>
+                            
+                            <div class="timer" id="timer">
+                                <i class="fas fa-clock"></i>
+                                <span id="timerText">00:00</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Transcript -->
+                        <div class="transcript-container" id="transcriptContainer">
+                            <h4><i class="fas fa-file-alt"></i> Your Answer Transcript</h4>
+                            <div class="transcript-text" id="transcriptText">
+                                Your spoken answer will appear here...
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="interview-actions">
+                            <button class="btn btn-outline" id="skipQuestion">
+                                <i class="fas fa-forward"></i> Skip Question
+                            </button>
+                            <button class="btn btn-primary" id="submitAnswer" disabled>
+                                <i class="fas fa-check"></i> Submit Answer
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <!-- ============================================
+                     RESULTS SCREEN (After Interview)
+                     ============================================ -->
+                <div class="interview-screen" id="resultsScreen">
+                    <div class="results-container">
+                        
+                        <div class="results-header">
+                            <div class="completion-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h2>Interview Complete!</h2>
+                            <p>Here's your performance analysis</p>
+                        </div>
+                        
+                        <!-- Overall Score -->
+                        <div class="overall-score">
+                            <div class="score-circle">
+                                <svg viewBox="0 0 200 200">
+                                    ircle cx="100" cy="100" r="90" fill="none" stroke="#e5e7eb" stroke-width="20"/>
+                                    ircle cx="100" cy="100" r="90" fill="none" stroke="#10b981" stroke-width="20" 
+                                            stroke-dasharray="565.48" stroke-dashoffset="113.1" 
+                                            stroke-linecap="round" transform="rotate(-90 100 100)"/>
+                                </svg>
+                                <div class="score-text">
+                                    <h3>8.5</h3>
+                                    <p>out of 10</p>
+                                </div>
+                            </div>
+                            <h3>Excellent Performance!</h3>
+                            <p>You're well-prepared for real interviews</p>
+                        </div>
+                        
+                        <!-- Performance Metrics -->
+                        <div class="performance-metrics">
+                            <h3>Performance Breakdown</h3>
+                            
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <span class="metric-name">
+                                        <i class="fas fa-comments"></i> Communication Skills
+                                    </span>
+                                    <span class="metric-score">9.0/10</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 90%; background: #10b981;"></div>
+                                </div>
+                                <p class="metric-feedback">Clear and articulate responses. Excellent verbal communication.</p>
+                            </div>
+                            
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <span class="metric-name">
+                                        <i class="fas fa-code"></i> Technical Knowledge
+                                    </span>
+                                    <span class="metric-score">8.5/10</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 85%; background: #6366f1;"></div>
+                                </div>
+                                <p class="metric-feedback">Strong understanding of concepts. Good practical examples.</p>
+                            </div>
+                            
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <span class="metric-name">
+                                        <i class="fas fa-lightbulb"></i> Problem Solving
+                                    </span>
+                                    <span class="metric-score">8.0/10</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 80%; background: #f59e0b;"></div>
+                                </div>
+                                <p class="metric-feedback">Good analytical approach. Could improve on edge cases.</p>
+                            </div>
+                            
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <span class="metric-name">
+                                        <i class="fas fa-clock"></i> Response Time
+                                    </span>
+                                    <span class="metric-score">8.5/10</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 85%; background: #3b82f6;"></div>
+                                </div>
+                                <p class="metric-feedback">Well-paced answers. Good balance between speed and quality.</p>
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- Strengths & Improvements -->
+                        <div class="feedback-section">
+                            <div class="feedback-card strengths">
+                                <h4><i class="fas fa-thumbs-up"></i> Key Strengths</h4>
+                                <ul>
+                                    <li>Excellent communication and clarity</li>
+                                    <li>Strong technical foundation</li>
+                                    <li>Good use of real-world examples</li>
+                                    <li>Confident delivery</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feedback-card improvements">
+                                <h4><i class="fas fa-chart-line"></i> Areas for Improvement</h4>
+                                <ul>
+                                    <li>Consider discussing edge cases more</li>
+                                    <li>Structure complex answers better</li>
+                                    <li>Add more details about scalability</li>
+                                    <li>Mention testing strategies</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Question-wise Analysis -->
+                        <div class="questions-analysis">
+                            <h3>Question-wise Analysis</h3>
+                            
+                            <div class="question-card">
+                                <div class="question-header">
+                                    <span class="question-number">Q1</span>
+                                    <h4>What is your experience with React?</h4>
+                                    <span class="question-score badge badge-success">9.0</span>
+                                </div>
+                                <p class="question-answer">"I have 2 years of experience with React..."</p>
+                                <div class="question-feedback">
+                                    <i class="fas fa-check-circle"></i> Strong answer with specific examples
+                                </div>
+                            </div>
+                            
+                            <div class="question-card">
+                                <div class="question-header">
+                                    <span class="question-number">Q2</span>
+                                    <h4>Explain REST API design principles</h4>
+                                    <span class="question-score badge badge-success">8.5</span>
+                                </div>
+                                <p class="question-answer">"REST APIs follow stateless communication..."</p>
+                                <div class="question-feedback">
+                                    <i class="fas fa-check-circle"></i> Good explanation of key concepts
+                                </div>
+                            </div>
+                            
+                            <div class="question-card">
+                                <div class="question-header">
+                                    <span class="question-number">Q3</span>
+                                    <h4>How do you handle state management?</h4>
+                                    <span class="question-score badge badge-warning">7.5</span>
+                                </div>
+                                <p class="question-answer">"I use Redux for complex state..."</p>
+                                <div class="question-feedback">
+                                    <i class="fas fa-info-circle"></i> Could mention more alternatives and trade-offs
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="results-actions">
+                            <a href="interview-history.html" class="btn btn-outline btn-lg">
+                                <i class="fas fa-history"></i> View History
+                            </a>
+                            <button class="btn btn-primary btn-lg" id="retakeInterview">
+                                <i class="fas fa-redo"></i> Take Another Interview
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            
+        </main>
+        
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/interview.js"></script>
+    
+</body>
+</html>
+

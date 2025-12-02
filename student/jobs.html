@@ -1,1 +1,596 @@
- 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Jobs - IntelliHire</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/jobs.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    
+    <div class="dashboard-wrapper">
+        
+        <!-- ============================================
+             SIDEBAR (Same as dashboard)
+             ============================================ -->
+        <aside class="sidebar" id="sidebar">
+            
+            <!-- Brand -->
+            <div class="sidebar-brand">
+                <i class="fas fa-brain"></i>
+                <span>IntelliHire</span>
+            </div>
+            
+            <!-- User Profile -->
+            <div class="sidebar-profile">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-info">
+                    <h4>Rahul Sharma</h4>
+                    <p>rahul@example.com</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="jobs.html" class="nav-item active">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Browse Jobs</span>
+                    <span class="badge badge-primary">50</span>
+                </a>
+                <a href="applications.html" class="nav-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>My Applications</span>
+                </a>
+                <a href="resume-upload.html" class="nav-item">
+                    <i class="fas fa-upload"></i>
+                    <span>Upload Resume</span>
+                </a>
+                <a href="mock-interview.html" class="nav-item">
+                    <i class="fas fa-microphone"></i>
+                    <span>Mock Interview</span>
+                </a>
+                <a href="interview-history.html" class="nav-item">
+                    <i class="fas fa-history"></i>
+                    <span>Interview History</span>
+                </a>
+                <a href="profile.html" class="nav-item">
+                    <i class="fas fa-user-cog"></i>
+                    <span>Profile Settings</span>
+                </a>
+            </nav>
+            
+            <!-- Logout -->
+            <div class="sidebar-footer">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+            
+        </aside>
+        
+        <!-- ============================================
+             MAIN CONTENT
+             ============================================ -->
+        <main class="main-content">
+            
+            <!-- Top Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Browse Jobs</h1>
+                </div>
+                <div class="header-right">
+                    <!-- Search Bar -->
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search jobs, companies..." id="jobSearch">
+                    </div>
+                    
+                    <!-- Notifications -->
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    
+                    <!-- User Avatar -->
+                    <div class="header-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- ============================================
+                 JOBS CONTENT
+                 ============================================ -->
+            <div class="jobs-content">
+                
+                <!-- Jobs Header -->
+                <div class="jobs-header">
+                    <div class="jobs-count">
+                        <h2>Showing <span id="jobCount">50</span> Jobs</h2>
+                        <p>Based on your profile and preferences</p>
+                    </div>
+                    <div class="jobs-actions">
+                        <button class="btn btn-outline" id="filterToggle">
+                            <i class="fas fa-filter"></i> Filters
+                        </button>
+                        <select class="form-control" id="sortBy">
+                            <option value="relevance">Most Relevant</option>
+                            <option value="recent">Most Recent</option>
+                            <option value="salary">Highest Salary</option>
+                            <option value="match">Best Match</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Jobs Layout -->
+                <div class="jobs-layout">
+                    
+                    <!-- ============================================
+                         FILTERS SIDEBAR
+                         ============================================ -->
+                    <aside class="filters-sidebar" id="filtersSidebar">
+                        <div class="filters-header">
+                            <h3>Filters</h3>
+                            <button class="btn-text" id="clearFilters">Clear All</button>
+                        </div>
+                        
+                        <!-- Location Filter -->
+                        <div class="filter-group">
+                            <h4>Location</h4>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="location" value="bangalore">
+                                    <span>Bangalore</span>
+                                    <span class="count">(25)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="location" value="hyderabad">
+                                    <span>Hyderabad</span>
+                                    <span class="count">(18)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="location" value="mumbai">
+                                    <span>Mumbai</span>
+                                    <span class="count">(15)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="location" value="pune">
+                                    <span>Pune</span>
+                                    <span class="count">(12)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="location" value="delhi">
+                                    <span>Delhi NCR</span>
+                                    <span class="count">(20)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Job Type Filter -->
+                        <div class="filter-group">
+                            <h4>Job Type</h4>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="jobType" value="fulltime">
+                                    <span>Full Time</span>
+                                    <span class="count">(45)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="jobType" value="parttime">
+                                    <span>Part Time</span>
+                                    <span class="count">(5)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="jobType" value="contract">
+                                    <span>Contract</span>
+                                    <span class="count">(8)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="jobType" value="internship">
+                                    <span>Internship</span>
+                                    <span class="count">(12)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience Level -->
+                        <div class="filter-group">
+                            <h4>Experience Level</h4>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="experience" value="entry">
+                                    <span>Entry Level (0-2 years)</span>
+                                    <span class="count">(20)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="experience" value="mid">
+                                    <span>Mid Level (3-5 years)</span>
+                                    <span class="count">(18)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="experience" value="senior">
+                                    <span>Senior (5+ years)</span>
+                                    <span class="count">(12)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Salary Range -->
+                        <div class="filter-group">
+                            <h4>Salary Range (LPA)</h4>
+                            <div class="range-inputs">
+                                <input type="number" placeholder="Min" class="form-control" id="minSalary">
+                                <span>-</span>
+                                <input type="number" placeholder="Max" class="form-control" id="maxSalary">
+                            </div>
+                        </div>
+                        
+                        <!-- Company -->
+                        <div class="filter-group">
+                            <h4>Company</h4>
+                            <div class="search-filter">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search company..." class="form-control">
+                            </div>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="company" value="google">
+                                    <span>Google</span>
+                                    <span class="count">(8)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="company" value="microsoft">
+                                    <span>Microsoft</span>
+                                    <span class="count">(7)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="company" value="amazon">
+                                    <span>Amazon</span>
+                                    <span class="count">(10)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="company" value="flipkart">
+                                    <span>Flipkart</span>
+                                    <span class="count">(5)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Apply Filters Button -->
+                        <button class="btn btn-primary btn-block" id="applyFilters">
+                            Apply Filters
+                        </button>
+                        
+                    </aside>
+                    
+                    <!-- ============================================
+                         JOBS LIST
+                         ============================================ -->
+                    <div class="jobs-list" id="jobsList">
+                        
+                        <!-- Job Card 1 -->
+                        <div class="job-card" data-match="98">
+                            <div class="job-card-header">
+                                <div class="job-company-logo">
+                                    <i class="fab fa-google"></i>
+                                </div>
+                                <div class="job-card-title">
+                                    <h3>Senior Frontend Developer</h3>
+                                    <p class="company-name">
+                                        <i class="fas fa-building"></i> Google Inc.
+                                    </p>
+                                </div>
+                                <button class="btn-bookmark">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="job-card-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Bangalore, India
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-briefcase"></i> Full Time
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-wallet"></i> ₹15-20 LPA
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i> Posted 2 days ago
+                                </span>
+                            </div>
+                            
+                            <div class="job-card-description">
+                                <p>We are looking for an experienced Frontend Developer to join our team. You will work on cutting-edge web applications using React, TypeScript, and modern tools.</p>
+                            </div>
+                            
+                            <div class="job-card-skills">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">CSS</span>
+                                <span class="skill-tag">+3 more</span>
+                            </div>
+                            
+                            <div class="job-card-footer">
+                                <div class="match-score">
+                                    <div class="match-circle" style="background: conic-gradient(#10b981 0% 98%, #e5e7eb 98% 100%);">
+                                        <span>98%</span>
+                                    </div>
+                                    <span class="match-label">Match Score</span>
+                                </div>
+                                <button class="btn btn-primary">
+                                    Apply Now <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Job Card 2 -->
+                        <div class="job-card" data-match="95">
+                            <div class="job-card-header">
+                                <div class="job-company-logo" style="background: linear-gradient(135deg, #00a4ef, #0078d4);">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <div class="job-card-title">
+                                    <h3>Full Stack Developer</h3>
+                                    <p class="company-name">
+                                        <i class="fas fa-building"></i> Microsoft
+                                    </p>
+                                </div>
+                                <button class="btn-bookmark active">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="job-card-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Hyderabad, India
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-briefcase"></i> Full Time
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-wallet"></i> ₹18-25 LPA
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i> Posted 1 week ago
+                                </span>
+                            </div>
+                            
+                            <div class="job-card-description">
+                                <p>Join Microsoft's engineering team to build scalable cloud solutions. Work with .NET, Azure, React, and Node.js in a collaborative environment.</p>
+                            </div>
+                            
+                            <div class="job-card-skills">
+                                <span class="skill-tag">.NET</span>
+                                <span class="skill-tag">Azure</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">+4 more</span>
+                            </div>
+                            
+                            <div class="job-card-footer">
+                                <div class="match-score">
+                                    <div class="match-circle" style="background: conic-gradient(#10b981 0% 95%, #e5e7eb 95% 100%);">
+                                        <span>95%</span>
+                                    </div>
+                                    <span class="match-label">Match Score</span>
+                                </div>
+                                <button class="btn btn-primary">
+                                    Apply Now <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Job Card 3 -->
+                        <div class="job-card" data-match="92">
+                            <div class="job-card-header">
+                                <div class="job-company-logo" style="background: linear-gradient(135deg, #ff9900, #146eb4);">
+                                    <i class="fab fa-amazon"></i>
+                                </div>
+                                <div class="job-card-title">
+                                    <h3>Software Development Engineer II</h3>
+                                    <p class="company-name">
+                                        <i class="fas fa-building"></i> Amazon
+                                    </p>
+                                </div>
+                                <button class="btn-bookmark">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="job-card-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Mumbai, India
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-briefcase"></i> Full Time
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-wallet"></i> ₹20-30 LPA
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i> Posted 3 days ago
+                                </span>
+                            </div>
+                            
+                            <div class="job-card-description">
+                                <p>Design, develop, and deploy distributed systems at Amazon scale. Work on AWS services and build customer-facing features used by millions.</p>
+                            </div>
+                            
+                            <div class="job-card-skills">
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">Distributed Systems</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">+5 more</span>
+                            </div>
+                            
+                            <div class="job-card-footer">
+                                <div class="match-score">
+                                    <div class="match-circle" style="background: conic-gradient(#f59e0b 0% 92%, #e5e7eb 92% 100%);">
+                                        <span>92%</span>
+                                    </div>
+                                    <span class="match-label">Match Score</span>
+                                </div>
+                                <button class="btn btn-primary">
+                                    Apply Now <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Job Card 4 -->
+                        <div class="job-card" data-match="88">
+                            <div class="job-card-header">
+                                <div class="job-company-logo" style="background: linear-gradient(135deg, #f68e1f, #d35400);">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="job-card-title">
+                                    <h3>Backend Engineer</h3>
+                                    <p class="company-name">
+                                        <i class="fas fa-building"></i> Flipkart
+                                    </p>
+                                </div>
+                                <button class="btn-bookmark">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="job-card-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Bangalore, India
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-briefcase"></i> Full Time
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-wallet"></i> ₹12-18 LPA
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i> Posted 5 days ago
+                                </span>
+                            </div>
+                            
+                            <div class="job-card-description">
+                                <p>Build scalable backend systems for India's largest e-commerce platform. Work with microservices, databases, and high-traffic systems.</p>
+                            </div>
+                            
+                            <div class="job-card-skills">
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">Microservices</span>
+                                <span class="skill-tag">Redis</span>
+                                <span class="skill-tag">+3 more</span>
+                            </div>
+                            
+                            <div class="job-card-footer">
+                                <div class="match-score">
+                                    <div class="match-circle" style="background: conic-gradient(#f59e0b 0% 88%, #e5e7eb 88% 100%);">
+                                        <span>88%</span>
+                                    </div>
+                                    <span class="match-label">Match Score</span>
+                                </div>
+                                <button class="btn btn-primary">
+                                    Apply Now <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Job Card 5 -->
+                        <div class="job-card" data-match="85">
+                            <div class="job-card-header">
+                                <div class="job-company-logo" style="background: linear-gradient(135deg, #00b8d9, #0052cc);">
+                                    <i class="fab fa-atlassian"></i>
+                                </div>
+                                <div class="job-card-title">
+                                    <h3>DevOps Engineer</h3>
+                                    <p class="company-name">
+                                        <i class="fas fa-building"></i> Atlassian
+                                    </p>
+                                </div>
+                                <button class="btn-bookmark">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="job-card-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Pune, India
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-briefcase"></i> Full Time
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-wallet"></i> ₹16-22 LPA
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-clock"></i> Posted 1 week ago
+                                </span>
+                            </div>
+                            
+                            <div class="job-card-description">
+                                <p>Automate infrastructure, build CI/CD pipelines, and ensure reliability of services. Work with Kubernetes, Docker, and cloud platforms.</p>
+                            </div>
+                            
+                            <div class="job-card-skills">
+                                <span class="skill-tag">Kubernetes</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">CI/CD</span>
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">+4 more</span>
+                            </div>
+                            
+                            <div class="job-card-footer">
+                                <div class="match-score">
+                                    <div class="match-circle" style="background: conic-gradient(#3b82f6 0% 85%, #e5e7eb 85% 100%);">
+                                        <span>85%</span>
+                                    </div>
+                                    <span class="match-label">Match Score</span>
+                                </div>
+                                <button class="btn btn-primary">
+                                    Apply Now <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Load More -->
+                        <div class="load-more">
+                            <button class="btn btn-outline btn-lg" id="loadMore">
+                                <i class="fas fa-sync-alt"></i> Load More Jobs
+                            </button>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </main>
+        
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/jobs.js"></script>
+    
+</body>
+</html>
+

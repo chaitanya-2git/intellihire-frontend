@@ -1,1 +1,227 @@
- 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - IntelliHire</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    
+    <div class="auth-container">
+        
+        <!-- Left Side - Form -->
+        <div class="auth-left">
+            <div class="auth-content">
+                
+                <!-- Back to Home -->
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+                
+                <!-- Brand -->
+                <div class="brand">
+                    <i class="fas fa-brain"></i>
+                    <h2>IntelliHire</h2>
+                </div>
+                
+                <!-- Title -->
+                <h1>Create Account</h1>
+                <p class="auth-subtitle">Start your journey to success today</p>
+                
+                <!-- Signup Form -->
+                <form id="signupForm" class="auth-form">
+                    
+                    <!-- Full Name Field -->
+                    <div class="form-group">
+                        <label for="fullname">
+                            <i class="fas fa-user"></i> Full Name
+                        </label>
+                        <input 
+                            type="text" 
+                            id="fullname" 
+                            name="fullname" 
+                            placeholder="Enter your full name" 
+                            required
+                            autocomplete="name"
+                        >
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+                    
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Enter your email" 
+                            required
+                            autocomplete="email"
+                        >
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <label for="password">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder="Create a password" 
+                                required
+                                autocomplete="new-password"
+                            >
+                            <span class="toggle-password" onclick="togglePassword('password')">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        
+                        <!-- Password Strength Indicator -->
+                        <div class="password-strength">
+                            <div class="strength-bar" id="strengthBar"></div>
+                        </div>
+                        <small class="password-hint" id="passwordHint">Use 8+ characters with mix of letters, numbers & symbols</small>
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+                    
+                    <!-- Confirm Password Field -->
+                    <div class="form-group">
+                        <label for="confirmPassword">
+                            <i class="fas fa-lock"></i> Confirm Password
+                        </label>
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                name="confirmPassword" 
+                                placeholder="Confirm your password" 
+                                required
+                                autocomplete="new-password"
+                            >
+                            <span class="toggle-password" onclick="togglePassword('confirmPassword')">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+                    
+                    <!-- Terms & Conditions -->
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="terms" id="terms" required>
+                            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                        </label>
+                        <span class="error-message" id="termsError"></span>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <span class="btn-text">Create Account</span>
+                        <span class="btn-loader" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Creating account...
+                        </span>
+                    </button>
+                    
+                    <!-- Divider -->
+                    <div class="divider">
+                        <span>OR</span>
+                    </div>
+                    
+                    <!-- Social Signup -->
+                    <button type="button" class="btn-social google">
+                        <i class="fab fa-google"></i> Sign up with Google
+                    </button>
+                    
+                    <button type="button" class="btn-social linkedin">
+                        <i class="fab fa-linkedin"></i> Sign up with LinkedIn
+                    </button>
+                    
+                    <!-- Switch to Login -->
+                    <p class="auth-switch">
+                        Already have an account? <a href="login.html">Sign in</a>
+                    </p>
+                    
+                </form>
+                
+            </div>
+        </div>
+        
+        <!-- Right Side - Features Showcase -->
+        <div class="auth-right">
+            <div class="auth-right-content">
+                
+                <h2 class="auth-right-title">Join Thousands of Successful Job Seekers</h2>
+                
+                <!-- Feature Showcase -->
+                <div class="feature-showcase">
+                    <div class="showcase-item">
+                        <div class="showcase-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="showcase-content">
+                            <h3>AI-Powered Matching</h3>
+                            <p>Get matched with jobs that truly fit your skills</p>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-item">
+                        <div class="showcase-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <div class="showcase-content">
+                            <h3>Voice Mock Interviews</h3>
+                            <p>Practice with realistic AI interviews</p>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-item">
+                        <div class="showcase-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="showcase-content">
+                            <h3>Track Progress</h3>
+                            <p>Monitor your improvement over time</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats -->
+                <div class="auth-stats">
+                    <div class="stat-box">
+                        <h3>10K+</h3>
+                        <p>Active Jobs</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>5K+</h3>
+                        <p>Placements</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>95%</h3>
+                        <p>Success Rate</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/auth.js"></script>
+    
+</body>
+</html>
+
